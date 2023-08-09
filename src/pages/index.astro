@@ -1,0 +1,221 @@
+---
+import Resets from '@julian_cataldo/astro-resets/Resets.astro'
+const description = "A simple and user friendly app that allows you to control keyboard backlighting via USB wire. Replaces the missing official application for macOS and Linux."
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+        <meta name="description" content={description}>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Nuga" />
+        <meta property="og:url" content={Astro.url.toString()} />
+        <meta property="og:title" content="Nuga" />
+        <meta property="og:description" content={description}>
+		<title>Nuga</title>
+        <Resets
+            removeAllMargins
+            fontSmoothing
+            scrollSmooth
+            borderBox
+            scrollBarKeep
+            unstyleNavList
+            accessibleLineHeight
+        />
+	</head>
+	<body>
+		<div class="container">
+            <div class="text">
+                <div class="app-icon" />
+                <h1>Nuga</h1>
+                <span class="description">Application for controlling NuPhy® keyboards.</span>
+                <p>A simple and user friendly app that allows you to control keyboard backlighting via USB wire. Replaces the missing official application for macOS and Linux.</p>
+                <div class="actions">
+                    <a class="button main" href="https://github.com/mishamyrt/Nuga/releases/latest">Download</a>
+                    <a class="button" href="https://github.com/mishamyrt/Nuga">View Source</a>
+                    <p class="compatibilities">compatible with macOS 13.0+<br/>
+                        or Ubuntu 22.04+</p>
+                </div>
+                <p class="copyright">© <a href="https://myrt.co">Misha</a>, 2023</p>
+            </div>
+            <div class="image-container" />
+        </div>
+	</body>
+</html>
+
+<style lang="scss">
+    h1 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 72px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        background: linear-gradient(90deg, #F6A031 0%, rgba(253, 216, 22, 0.97) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    html {
+        color-scheme: dark;
+    }
+
+    a {
+        color: rgba(255, 255, 255, 0.50);
+        transition: .3s ease-out;
+    }
+
+    .app-icon {
+        width: 64px;
+        height: 64px;
+        background-image: url(/app-icon.png);
+        background-size: contain;
+        position: absolute;
+        top: 12px;
+        left: -79px;
+    }
+
+    .text {
+        position: relative;
+        max-width: 350px;
+    }
+
+    a:hover {
+        transition: 0s;
+        color: rgba(255, 255, 255, 0.90);
+    }
+
+    body {
+        background-color: #17112b;
+        color: rgba(255, 255, 255, 0.50);
+    }
+
+    .description,
+    p {
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    p {
+        margin-top: 32px;
+    }
+
+    .description {
+        display: block;
+        width: 62%;
+        margin-top: 6px;
+    }
+
+    .actions {
+        margin-top: 42px;
+    }
+
+    .button {
+        border-radius: 5px;
+        background: #DABF9F;
+        position: relative;
+        padding: 9px 25px;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    .button:hover {
+        background: #fff5ea;
+        color: black;
+    }
+
+    .button.main {
+        background: #FCA02F;
+    }
+
+    .button.main:hover {
+        background: #ff7300;
+    }
+
+    .button::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(0, 0, 0, 0.05) 100%);
+        border-radius: 5px;
+        opacity: 0.3;
+    }
+
+
+    .compatibilities,
+    .copyright {
+        font-weight: 400;
+        font-size: 12px;
+        margin-top: 12px;
+    }
+
+    .image-container {
+        background-image: url(/window-shadow.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        background-position: 50%;
+    }
+    
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        min-height: 100vh;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1350px) {
+        .container {
+            margin: 0 100px;
+        }
+    }
+    @media screen and (max-width: 1050px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+        }
+
+        .image-container {
+            aspect-ratio: 827/746;
+            width: calc(100% + 40px);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            margin: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+        .app-icon {
+            left: 0;
+            width: 40px;
+            height: 40px;
+        }
+        .text {
+            max-width: unset;
+        }
+        .description {
+            margin-top: 20px;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+    }
+</style>

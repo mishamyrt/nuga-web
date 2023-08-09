@@ -1,0 +1,19 @@
+{
+  "name": "nuga-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@julian_cataldo/astro-resets": "^0.12.6",
+    "astro": "^2.10.3"
+  },
+  "devDependencies": {
+    "sass": "^1.64.2"
+  }
+}
