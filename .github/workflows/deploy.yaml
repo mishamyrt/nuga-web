@@ -25,10 +25,8 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
+          run_install: true
           version: '8.6.12'
-
-      - name: Bootstrap
-        run: pnpm install
 
       - name: Build
         run: pnpm run build
